@@ -1,0 +1,99 @@
+Index: src/test/java/com/hrm3live/LoginApplication.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.hrm3live;\rimport io.github.bonigarcia.wdm.WebDriverManager;\rimport org.openqa.selenium.By;\rimport org.openqa.selenium.WebDriver;\rimport org.openqa.selenium.chrome.ChromeDriver;\rimport org.openqa.selenium.firefox.FirefoxDriver;\rimport org.openqa.selenium.support.ui.ExpectedCondition;\rimport org.openqa.selenium.support.ui.ExpectedConditions;\rimport org.openqa.selenium.support.ui.WebDriverWait;\r\rimport java.time.Duration;\rpublic class LoginApplication {\r\r    public static WebDriver driver;\r    public static void main(String[] args) throws InterruptedException {\r//        System.setProperty(\"webdriver.gecko.driver\", \"C:\\\\Users\\\\USER\\\\Documents\\\\Drivers\\\\geckodriver.exe\");\r        WebDriverManager.firefoxdriver().setup();\r        driver=new FirefoxDriver();\r        driver.get(\"https://opensource-demo.orangehrmlive.com/\");\r        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));\r\r\r\r        //for username\r        WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(5));\r        wait.until(ExpectedConditions.visibilityOfElementLocated(By.name(\"username\")));\r        boolean test=  driver.findElement(By.name(\"username\")).isDisplayed();\r        System.out.println(test);\r        driver.findElement(By.name(\"username\")).clear();\r        driver.findElement(By.xpath(\"//input[@name='username']\")).sendKeys(\"Admin\");\r\r\r\r        //for password\r        WebDriverWait wait2=new WebDriverWait(driver,Duration.ofSeconds(5));\r        wait2.until(ExpectedConditions.visibilityOfElementLocated(By.name(\"password\")));\r        driver.findElement(By.name(\"password\")).clear();\r        driver.findElement(By.xpath(\"//input[@name='password']\")).sendKeys(\"admin123\");\r        Thread.sleep(500);\r\r\r//for login button\r        WebDriverWait wait3=new WebDriverWait(driver,Duration.ofSeconds(5));\r        wait3.until(ExpectedConditions.elementToBeClickable(By.xpath(\"//button[@type='submit']\")));\r        driver.findElement(By.xpath(\"//button[@type='submit']\")).click();\r        Thread.sleep(500);\r\r        //condition check actual result and expected result:\r        String expectedTitle=\"OrangeHRM\";\r        String actualTitle=driver.getTitle();\r        System.out.println(\"Actual Page Title:\" + \" \" + actualTitle);\r        if(expectedTitle.equals(actualTitle)){\r            System.out.println(\"Loged In Successfully and it's home page\");\r        }\r        driver.quit();\r    }\r}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/com/hrm3live/LoginApplication.java b/src/test/java/com/hrm3live/LoginApplication.java
+--- a/src/test/java/com/hrm3live/LoginApplication.java	(revision 6cbf3240228b8155a93d949af26fa324d27ca0ec)
++++ b/src/test/java/com/hrm3live/LoginApplication.java	(date 1700245550277)
+@@ -53,5 +53,6 @@
+             System.out.println("Loged In Successfully and it's home page");
+         }
+         driver.quit();
++        //My name is shamim sorkar
+     }
+ }
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"0508ed54-db47-476b-b8e4-00b3b7d64f6e\" name=\"Changes\" comment=\"\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ExternalProjectsData\">\r\n    <projectState path=\"$PROJECT_DIR$\">\r\n      <ProjectState />\r\n    </projectState>\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectColorInfo\"><![CDATA[{\r\n  \"customColor\": \"\",\r\n  \"associatedIndex\": 1\r\n}]]></component>\r\n  <component name=\"ProjectId\" id=\"2YJUwhMF6kzs71zsCj9F5aoGmp8\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"project.structure.last.edited\": \"Artifacts\",\r\n    \"project.structure.proportion\": \"0.0\",\r\n    \"project.structure.side.proportion\": \"0.2\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"0508ed54-db47-476b-b8e4-00b3b7d64f6e\" name=\"Changes\" comment=\"\" />\r\n      <created>1700243418160</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1700243418160</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 6cbf3240228b8155a93d949af26fa324d27ca0ec)
++++ b/.idea/workspace.xml	(date 1700245550314)
+@@ -22,24 +22,38 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectColorInfo"><![CDATA[{
+-  "customColor": "",
+-  "associatedIndex": 1
++  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
++  "lastFilter": {
++    "state": "OPEN",
++    "assignee": "error-19"
++  }
+ }]]></component>
++  <component name="GithubPullRequestsUISettings">
++    <option name="selectedUrlAndAccountId">
++      <UrlAndAccount>
++        <option name="accountId" value="fd4f4a68-6214-497b-8e5d-a22598454f7a" />
++        <option name="url" value="https://github.com/error-19/Selenium_Project.git" />
++      </UrlAndAccount>
++    </option>
++  </component>
++  <component name="ProjectColorInfo">{
++  &quot;customColor&quot;: &quot;&quot;,
++  &quot;associatedIndex&quot;: 1
++}</component>
+   <component name="ProjectId" id="2YJUwhMF6kzs71zsCj9F5aoGmp8" />
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "project.structure.last.edited": "Artifacts",
+-    "project.structure.proportion": "0.0",
+-    "project.structure.side.proportion": "0.2"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
++    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
++    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+@@ -49,6 +63,19 @@
+       <option name="presentableId" value="Default" />
+       <updated>1700243418160</updated>
+     </task>
++    <task id="LOCAL-00001" summary="selenium code for radiobutton">
++      <option name="closed" value="true" />
++      <created>1700245246395</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1700245246395</updated>
++    </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="selenium code for radiobutton" />
++    <option name="LAST_COMMIT_MESSAGE" value="selenium code for radiobutton" />
++  </component>
+ </project>
+\ No newline at end of file
