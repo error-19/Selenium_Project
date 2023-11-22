@@ -1,0 +1,1 @@
+package com.oragnehrmlive;import org.openqa.selenium.WebDriver;public class BaseClass {    public static WebDriver driver;    public String Baseurl="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";}
